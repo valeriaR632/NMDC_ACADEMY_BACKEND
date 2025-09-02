@@ -19,13 +19,13 @@ USE `NextMoveDanceCenterUR` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `NextMoveDanceCenterUR`.`Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
-  `Nombre(s)` VARCHAR(50) NOT NULL,
-  `Apellido` VARCHAR(50) NOT NULL,
-  `Telefono` VARCHAR(11) NOT NULL,
-  `Correo` VARCHAR(45) NOT NULL,
-  `FechaRegistro` DATE NOT NULL,
+  `nombre` VARCHAR(50) NOT NULL,
+  `apellido` VARCHAR(50) NOT NULL,
+  `telefono` VARCHAR(10) NOT NULL,
+  `correo` VARCHAR(45) NOT NULL,
+  `fechaRegistro` DATE NOT NULL,
   PRIMARY KEY (`idUsuario`),
-  UNIQUE INDEX `Correo_UNIQUE` (`Correo` ASC) VISIBLE)
+  UNIQUE INDEX `Correo_UNIQUE` (`correo` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -34,10 +34,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `NextMoveDanceCenterUR`.`Maestros` (
   `idMaestros` INT NOT NULL AUTO_INCREMENT,
-  `Nombre` VARCHAR(50) NOT NULL,
-  `Apellido` VARCHAR(50) NOT NULL,
-  `Telefono` VARCHAR(11) NOT NULL,
-  `RedSocial` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(50) NOT NULL,
+  `apellido` VARCHAR(50) NOT NULL,
+  `telefono` VARCHAR(11) NOT NULL,
+  `redSocial` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`idMaestros`))
 ENGINE = InnoDB;
 
@@ -47,9 +47,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `NextMoveDanceCenterUR`.`Clases` (
   `idClases` INT NOT NULL AUTO_INCREMENT,
-  `NombreClase` VARCHAR(45) NOT NULL,
-  `EdadAdmicion` VARCHAR(45) NOT NULL,
-  `Horario` VARCHAR(45) NOT NULL,
+  `nombreClase` VARCHAR(45) NOT NULL,
+  `edadAdmision` VARCHAR(45) NOT NULL,
+  `horario` VARCHAR(100) NOT NULL,
   `Maestros_idMaestros` INT NOT NULL,
   PRIMARY KEY (`idClases`),
   INDEX `fk_Clases_Maestros1_idx` (`Maestros_idMaestros` ASC) VISIBLE,
@@ -66,9 +66,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `NextMoveDanceCenterUR`.`Pago` (
   `idPago` INT NOT NULL AUTO_INCREMENT,
-  `Costo` INT NOT NULL,
-  `Paquete` VARCHAR(45) NOT NULL,
-  `FechaPago` DATE NOT NULL,
+  `costo` INT NOT NULL,
+  `paquete` VARCHAR(45) NOT NULL,
+  `fechaPago` DATE NOT NULL,
   PRIMARY KEY (`idPago`))
 ENGINE = InnoDB;
 
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `NextMoveDanceCenterUR`.`Inscripcion` (
   `idInscripcion` INT NOT NULL AUTO_INCREMENT,
-  `FechaInscripcion` DATE NOT NULL,
+  `fechaInscripcion` DATE NOT NULL,
   `Clases_idClases` INT NOT NULL,
   `Usuario_idUsuario` INT NOT NULL,
   `Pago_idPago` INT NOT NULL,
