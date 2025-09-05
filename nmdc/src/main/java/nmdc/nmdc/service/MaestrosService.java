@@ -1,4 +1,4 @@
-package nmdc.nmdc.model.service;
+package nmdc.nmdc.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,17 +48,17 @@ public class MaestrosService {
 		return maestros;
 	}//addTeacher
 	public Maestros updateTeacher(Long id, String nombre, String apellido, String telefono, String redSocial) {
-		Maestros tmpMa=null;
+		Maestros tmpTeacher=null;
 		for(Maestros ma:lista) {
 			if(ma.getId()==id) {
 			if(nombre!=null)ma.setNombre(nombre);
 			if(apellido!=null)ma.setApellido(apellido);
 			if(telefono!=null)ma.setTelefono(telefono);
 			if(redSocial!=null)ma.setRedSocial(redSocial);
-			tmpMa=ma;
+			tmpTeacher=ma;
 			break;
 			}//if
 	}//foreach
-	return tmpMa;
+	return tmpTeacher;
    }
 }

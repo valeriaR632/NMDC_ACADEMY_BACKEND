@@ -50,12 +50,8 @@ public class Maestros {
 	public void setRedSocial(String redSocial) {
 		this.redSocial = redSocial;
 	}
-	public static long getTotal() {
-		return total;
-	}
-	public static void setTotal(long total) {
-		Maestros.total = total;
-	}//getter and setter
+
+	//getter and setter
 	@Override
 	public String toString() {
 		return "Maestros [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono

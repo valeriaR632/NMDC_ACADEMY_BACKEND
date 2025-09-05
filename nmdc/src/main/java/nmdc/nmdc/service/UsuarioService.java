@@ -1,4 +1,4 @@
-package nmdc.nmdc.model.service;
+package nmdc.nmdc.service;
 import java.util.ArrayList;
 import java.util.List;
 

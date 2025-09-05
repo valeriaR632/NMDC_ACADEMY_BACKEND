@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import nmdc.nmdc.model.Maestros;
 
-import nmdc.nmdc.model.service.MaestrosService;
+import nmdc.nmdc.service.MaestrosService;
 
 @RestController
 @RequestMapping(path="/api/maestros")//http:localhost:8080/api/maestros/
 public class MaestrosController {
-	@SuppressWarnings("unused")
+	
 	private final MaestrosService service;
 	@Autowired
 	public MaestrosController(MaestrosService service) {
@@ -30,20 +30,20 @@ public class MaestrosController {
 	public List<Maestros>getMaestros(){
 		return service.getTeacher();
 		}//getMaestros
-	@GetMapping(path="{useId")//http:localhost:8080/api/maestros/1
-	public Maestros getMaestros(@PathVariable("useId") Long id) {
+	@GetMapping(path="{maId}")//http:localhost:8080/api/maestros/1
+	public Maestros getMaestros(@PathVariable("maId") Long id) {
 		return service.getTeacher(id);
 	}
-	@DeleteMapping(path="{useId}")//http:localhost:8080/api/maestros/1
-	public Maestros deleteMaestros(@PathVariable("useId") Long id) {
+	@DeleteMapping(path="{maId}")//http:localhost:8080/api/maestros/1
+	public Maestros deleteMaestros(@PathVariable("maId") Long id) {
 		return service.deleteTeacher(id);
 }//deleteTeacher
 	@PostMapping
 	public Maestros addMaestros(@RequestBody Maestros maestros) {
 		return service.addTeacher(maestros);
 }//addUser
-	@PutMapping(path="{useId}")//http:localhost:8080/api/maestros/1
-	public Maestros updateMaestros(@PathVariable("useId") Long id,
+	@PutMapping(path="{maId}")//http:localhost:8080/api/maestros/1
+	public Maestros updateMaestros(@PathVariable("maId") Long id,
 	@RequestParam (required=false) String nombre,
 	@RequestParam (required=false) String apellido,
 	@RequestParam (required=false) String telefono,

@@ -1,6 +1,6 @@
 package nmdc.nmdc.controller;
 import nmdc.nmdc.model.Usuario;
-import nmdc.nmdc.model.service.UsuarioService;
+import nmdc.nmdc.service.UsuarioService;
 
 import java.util.List;
 
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path="/api/usuario/")//http:localhost:8080/api/usuario/
 public class UsuarioController {
-	@SuppressWarnings("unused")
 	private final UsuarioService service;
 	@Autowired
 	public UsuarioController(UsuarioService service) {
